@@ -1,4 +1,10 @@
 ## MusiCoinCity - Edu Chain Hackathon: Semester 1
+![six_maps](https://github.com/user-attachments/assets/6c8cb1fb-bd9b-40ac-907f-67bfc9b2a06e)
+
+![forest](https://github.com/user-attachments/assets/e5dbed7b-2c97-461e-b2ba-f952be4c4406)
+
+![connection](https://github.com/user-attachments/assets/b7be73de-b9a2-4b96-9ea1-4c732f6dda29)
+
 
 ## Foundry
 
