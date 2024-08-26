@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusiCoinCity - Myriad Places & Exclusive Sounds</title>
+    <link rel="icon" type="image/x-icon" href="./images/logo/MainLogo.png">
+    <link rel="icon" href="MusiCoinCity-logos_black.png">
+    <style>
+        /* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #e0f7fa;
+    color: #333;
+}
+
+a {
+    color: #004d40;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #00796b;
+}
+
+header {
+    background-color: #004d40;
+    color: #fff;
+    padding: 15px 0;
+    border-bottom: 5px solid #00796b;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin: 20px 0;
+    color: #004d40;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+}
+
+.col {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.card {
+    position: relative;
+    padding-bottom: 56.25%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-size: cover;
+    background-position: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    color: #fff;
+}
+
+.card-title {
+    font-size: 28px;
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+.card-link {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #00796b;
+    color: #fff;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.card-link:hover {
+    background-color: #004d40;
+}
+
+.footer {
+    padding: 20px;
+    background-color: #004d40;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.header-links a {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    background-color: #00796b;
+    color: #fff;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+.header-links a:hover {
+    background-color: #004d40;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .card-title {
+        font-size: 22px;
+    }
+
+    .card-link {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .header-links a {
+        font-size: 16px;
+        padding: 8px 12px;
+        margin-left: 5px; /* Reduced margin between buttons */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .card-link {
+        font-size: 10px;
+        padding: 6px 12px;
+    }
+
+    .header-links a {
+        font-size: 14px;
+        padding: 6px 10px;
+        margin-left: 5px; /* Reduced margin between buttons */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <a href="index.html"><img src="./images/logo/MainLogo.png" alt="Logo" style="width: 80px;"></a>
+                </div>
+                <div class="col" style="text-align: right;">
+                    <div class="header-links">
+                        <a href="about.html">Elf Web</a>
+                        <a href="wallet.html">Wallet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h1>Where do you want to work&study or just chill?</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card cardforest" style="background-image: url('./images/forest.gif');">
+                        <div class="card-content">
+                            <h2 class="card-title">Forest</h2>
+                            <a href="forest.html" class="card-link">EDU Forest</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card cardspace" style="background-image: url('./images/space.gif');">
+                        <div class="card-content">
+                            <h2 class="card-title">Space</h2>
+                            <a href="space.html" class="card-link">EDU Space</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card carddesert" style="background-image: url('./images/desert.gif');">
+                        <div class="card-content">
+                            <h2 class="card-title">Desert</h2>
+                            <a href="desert.html" class="card-link">EDU Desert</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card cardocean" style="background-image: url('./images/ocean.gif');">
+                        <div class="card-content">
+                            <h2 class="card-title">Ocean</h2>
+                            <a href="ocean.html" class="card-link">EDU Ocean</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card cardmountain" style="background-image: url('./images/mountain.gif');">
+                        <div class="card-content">
+                            <h2 class="card-title">Mountain</h2>
+                            <a href="mountain.html" class="card-link">EDU Mountain</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card cardcafe" style="background-image: url('./images/cafe.gif');">
+                        <div class="card-content">
+                            <h2 class="card-title">Cafe</h2>
+                            <a href="cafe.html" class="card-link">EDU Cafe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2023 ElfWeb - MusiCoinCity. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:elfwebteam@gmail.com">elfwebteam@gmail.com</a></p>
+    </footer>
+</body>
+</html>

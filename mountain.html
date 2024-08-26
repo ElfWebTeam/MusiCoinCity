@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mountain - MusiCoinCity</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5; /* Light background */
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gif-container {
+    flex-basis: 70%;
+    background: linear-gradient(to bottom right, #ffffff, #757577); /* White and grey */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.gif-container img {
+    max-width: 100%;
+    max-height: 100%;
+    border: 10px solid #5A5A5A; /* Dark grey border */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for 3D effect */
+    padding: 0; /* Space between border and gif */
+}
+
+.button-container {
+    flex-basis: 30%;
+    background: linear-gradient(to top right, #757577, #ffffff); /* Grey and white */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.button-container label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.button-container input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #5A5A5A; /* Dark grey slider background */
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.button-container input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #E0E0E0; /* Light grey thumb */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.button-container input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #E0E0E0; /* Light grey thumb */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.button-container button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    color: #ffffff;
+    background-color: #5A5A5A; /* Dark grey */
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    background-color: #7A7A7A; /* Lighter hover effect */
+}
+
+.bottom-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    bottom: 0;
+    width: 100%;
+    background-color: #757577; /* Grey background */
+    padding: 10px;
+}
+
+.bottom-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.bottom-buttons button:hover {
+    background-color: #3E8E41; /* Darker hover effect */
+}
+
+.donation {
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.donation label {
+    margin-right: 10px;
+    font-size: 1rem;
+    color: #333333; /* Darker text */
+}
+
+.donation input {
+    flex: 1;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #5A5A5A; /* Dark grey border */
+    background-color: #D7D7D7; /* Input background */
+    color: #333333; /* Input text color */
+}
+
+#donation-input {
+    width: 100px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .logo {
+        width: 100px; /* Smaller logo for tablets */
+    }
+
+    .gif-container img {
+        width: 80%; /* Smaller gif for tablets */
+    }
+
+    .bottom-buttons button {
+        padding: 8px 16px; /* Adjust button size for tablets */
+        font-size: 14px; /* Smaller font size for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 80px; /* Smaller logo for mobile phones */
+    }
+
+    .gif-container img {
+        width: 70%; /* Even smaller gif for mobile phones */
+    }
+
+    .bottom-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+    }
+
+    .bottom-buttons button {
+        width: 80%; /* Full width buttons on mobile */
+        margin-bottom: 10px; /* Margin between stacked buttons */
+        font-size: 14px; /* Smaller font size */
+        padding: 8px 16px; /* Smaller padding */
+    }
+
+    .donation {
+        flex-direction: column; /* Align amount text area under label */
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .donation label,
+    .donation input {
+        width: 100%; /* Full width for label and input */
+    }
+
+    .donation input {
+        margin-top: 5px; /* Space between label and input */
+    }
+}
+
+
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="gif-container">
+			<img src="./images/mountain.gif" alt="gif">
+		</div>
+		<div class="button-container" 	style="font-family: comic sans ms;">
+			<audio id="audio1" src="./audio/mountain/howling-wind.mp3" autoplay loop></audio>
+			<label for="volume-slider1">Howling wind:</label>
+			<input type="range" id="volume-slider1" min="0" max="1" step="0.1" value="1">
+
+			<audio id="audio2" src="./audio/mountain/crunching-snow.mp3" autoplay loop></audio>
+			<label for="volume-slider2">Crunching snow:</label>
+			<input type="range" id="volume-slider2" min="0" max="1" step="0.1" value="1">
+
+			<audio id="audio3" src="./audio/mountain/avalanche.mp3" autoplay loop></audio>
+			<label for="volume-slider3">Avalanche:</label>
+			<input type="range" id="volume-slider3" min="0" max="1" step="0.1" value="1">
+
+			<audio id="audio4" src="./audio/mountain/ice-cracking.flac" autoplay loop></audio>
+			<label for="volume-slider4">Ice cracking:</label>
+			<input type="range" id="volume-slider4" min="0" max="1" step="0.1" value="1">
+
+			<audio id="audio5" src="./audio/mountain/silence.mp3" autoplay loop></audio>
+			<label for="volume-slider5">Silence:</label>
+			<input type="range" id="volume-slider5" min="0" max="1" step="0.1" value="1">
+
+			<audio id="audio6" src="./audio/mountain/chimes.mp3" autoplay loop></audio>
+			<label for="volume-slider6">Chimes:</label>
+			<input type="range" id="volume-slider6" min="0" max="1" step="0.1" value="1">
+		</div>
+	</div>
+	<script>
+		const audio1 = document.getElementById("audio1");
+		const audio2 = document.getElementById("audio2");
+		const audio3 = document.getElementById("audio3");
+		const audio4 = document.getElementById("audio4");
+		const audio5 = document.getElementById("audio5");
+		const audio6 = document.getElementById("audio6");
+  
+		const volumeSlider1 = document.getElementById("volume-slider1");
+		const volumeSlider2 = document.getElementById("volume-slider2");
+		const volumeSlider3 = document.getElementById("volume-slider3");
+		const volumeSlider4 = document.getElementById("volume-slider4");
+		const volumeSlider5 = document.getElementById("volume-slider5");
+		const volumeSlider6 = document.getElementById("volume-slider6");
+
+		audio1.volume = 0.5; // Set the volume of the first audio to 0.5
+		audio2.volume = 0.2; // Set the volume of the second audio to 0.2
+		audio3.volume = 0; // Mute the third audio
+		audio4.volume = 0; // Mute the fourth audio
+		audio5.volume = 0; // Mute the fifth audio
+		audio6.volume = 0; // Mute the sixth audio
+
+		volumeSlider1.value = audio1.volume; // Set the value of the first slider to match the initial volume
+		volumeSlider2.value = audio2.volume; // Set the value of the second slider to match the initial volume
+		volumeSlider3.value = audio3.volume; // Set the value of the third slider to match the initial volume
+		volumeSlider4.value = audio4.volume; // Set the value of the fourth slider to match the initial volume
+		volumeSlider5.value = audio5.volume; // Set the value of the fifth slider to match the initial volume
+		volumeSlider6.value = audio6.volume; // Set the value of the sixth slider to match the initial volume
+  
+		volumeSlider1.addEventListener("input", () => {
+		  audio1.volume = volumeSlider1.value;
+		});
+  
+		volumeSlider2.addEventListener("input", () => {
+		  audio2.volume = volumeSlider2.value;
+		});
+  
+		volumeSlider3.addEventListener("input", () => {
+		  audio3.volume = volumeSlider3.value;
+		});
+  
+		volumeSlider4.addEventListener("input", () => {
+		  audio4.volume = volumeSlider4.value;
+		});
+
+		volumeSlider5.addEventListener("input", () => {
+		  audio5.volume = volumeSlider5.value;
+		});
+
+		volumeSlider6.addEventListener("input", () => {
+		  audio6.volume = volumeSlider6.value;
+		});
+	</script>
+</body>
+</html>

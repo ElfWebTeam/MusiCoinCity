@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Space - MusiCoinCity</title>
+	<link rel="icon" type="image/x-icon" href="./images/logo/MainLogo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1b1034;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .gif-container {
+            flex-basis: 70%;
+            background: linear-gradient(to bottom right, #2f2246a8, #10002c);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .gif-container img {
+            max-width: 100%;
+            max-height: 100%;
+            border: 10px solid #3b3a57;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 0;
+        }
+
+        .button-container {
+            flex-basis: 30%;
+            background: linear-gradient(to top right, #10002c, #2f2246a8);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .button-container label {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .button-container input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #4a4876;
+            border-radius: 5px;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        .button-container input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #ffffff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .button-container input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #ffffff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .button-container button {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: none;
+            color: #ffffff;
+            background-color: #3b3a57;
+            cursor: pointer;
+        }
+
+        .button-container button:hover {
+            background-color: #534f76;
+        }
+
+        .bottom-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            bottom: 0;
+            width: 100%;
+            background-color: #1b1034;
+            padding: 10px;
+        }
+
+        .bottom-buttons button {
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #3b3a57;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .bottom-buttons button:hover {
+            background-color: #534f76;
+        }
+
+        .donation {
+            margin-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        .donation label {
+            margin-right: 10px;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .donation input {
+            flex: 1;
+            font-size: 1rem;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #3b3a57;
+            background-color: #2a2650;
+            color: #ffffff;
+        }
+
+        #donation-input {
+            width: 100px;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                width: 100px;
+            }
+
+            .gif-container img {
+                width: 80%;
+            }
+
+            .bottom-buttons button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 80px;
+            }
+
+            .gif-container img {
+                width: 70%;
+            }
+
+            .bottom-buttons {
+                flex-direction: column;
+            }
+
+            .bottom-buttons button {
+                width: 80%;
+                margin-bottom: 10px;
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .donation {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .donation label,
+            .donation input {
+                width: 100%;
+            }
+
+            .donation input {
+                margin-top: 5px;
+            }
+        }
+
+        .question-mark {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            text-align: center;
+            color: #333333;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 5px;
+            position: relative;
+        }
+
+        .question-mark::after {
+            content: "The Planetary Society is an organization that promotes the exploration of space through education, advocacy, and innovative projects.";
+            visibility: hidden;
+            width: 200px;
+            background-color: #5A2D0C;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .question-mark::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #5A2D0C transparent transparent transparent;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .question-mark:hover::after,
+        .question-mark:hover::before {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="gif-container">
+            <img src="./images/space.gif" alt="gif">
+        </div>
+        <div class="button-container" style="font-family: comic sans ms;">
+            <audio id="audio1" src="./audio/space/space-sound.mp3" autoplay loop></audio>
+            <label for="volume-slider1">Space sound:</label>
+            <input type="range" id="volume-slider1" min="0" max="1" step="0.1" value="1">
+
+            <audio id="audio2" src="./audio/space/fan.mp3" autoplay loop></audio>
+            <label for="volume-slider2">Fan:</label>
+            <input type="range" id="volume-slider2" min="0" max="1" step="0.1" value="1">
+
+            <audio id="audio3" src="./audio/space/drone.mp3" autoplay loop></audio>
+            <label for="volume-slider3">Drone:</label>
+            <input type="range" id="volume-slider3" min="0" max="1" step="0.1" value="1">
+
+            <audio id="audio4" src="./audio/space/type.mp3" autoplay loop></audio>
+            <label for="volume-slider4">Type:</label>
+            <input type="range" id="volume-slider4" min="0" max="1" step="0.1" value="1">
+
+            <audio id="audio5" src="./audio/space/breath.mp3" autoplay loop></audio>
+            <label for="volume-slider5">Breath:</label>
+            <input type="range" id="volume-slider5" min="0" max="1" step="0.1" value="1">
+
+            <audio id="audio6" src="./audio/space/bip.mp3" autoplay loop></audio>
+            <label for="volume-slider6">Bip:</label>
+            <input type="range" id="volume-slider6" min="0" max="1" step="0.1" value="1">
+        </div>
+        <div class="bottom-buttons">
+            <button class="enableEDUButton btn" id="connectButton">Connect Wallet</button>
+            <div class="donation">
+                <label for="donation-input">Amount:</label>
+                <input type="number" id="donation-input" value="0.0000240">
+            </div>
+            <button class="sendEDUButton btn" id="donateButton">
+                Donate EDU to Planetary Society
+                <span class="question-mark">?</span>
+        </div>
+    </div>
+    <script>
+        const audio1 = document.getElementById("audio1");
+        const audio2 = document.getElementById("audio2");
+        const audio3 = document.getElementById("audio3");
+        const audio4 = document.getElementById("audio4");
+        const audio5 = document.getElementById("audio5");
+        const audio6 = document.getElementById("audio6");
+
+        const volumeSlider1 = document.getElementById("volume-slider1");
+        const volumeSlider2 = document.getElementById("volume-slider2");
+        const volumeSlider3 = document.getElementById("volume-slider3");
+        const volumeSlider4 = document.getElementById("volume-slider4");
+        const volumeSlider5 = document.getElementById("volume-slider5");
+        const volumeSlider6 = document.getElementById("volume-slider6");
+
+        audio1.volume = 0.5;
+        audio2.volume = 0.2;
+        audio3.volume = 0;
+        audio4.volume = 0;
+        audio5.volume = 0;
+        audio6.volume = 0;
+
+        volumeSlider1.value = audio1.volume;
+        volumeSlider2.value = audio2.volume;
+        volumeSlider3.value = audio3.volume;
+        volumeSlider4.value = audio4.volume;
+        volumeSlider5.value = audio5.volume;
+        volumeSlider6.value = audio6.volume;
+
+        volumeSlider1.addEventListener("input", () => {
+            audio1.volume = volumeSlider1.value;
+        });
+
+        volumeSlider2.addEventListener("input", () => {
+            audio2.volume = volumeSlider2.value;
+        });
+
+        volumeSlider3.addEventListener("input", () => {
+            audio3.volume = volumeSlider3.value;
+        });
+
+        volumeSlider4.addEventListener("input", () => {
+            audio4.volume = volumeSlider4.value;
+        });
+
+        volumeSlider5.addEventListener("input", () => {
+            audio5.volume = volumeSlider5.value;
+        });
+
+        volumeSlider6.addEventListener("input", () => {
+            audio6.volume = volumeSlider6.value;
+        });
+    </script>
+    <script>
+        const ethereum = window.ethereum;
+        const connectButton = document.getElementById('connectButton');
+        const donateButton = document.getElementById('donateButton');
+        const donationInput = document.getElementById('donation-input');
+
+        connectButton.addEventListener('click', async () => {
+            if (ethereum) {
+                try {
+                    const accounts = await ethereum.request({
+                        method: 'eth_requestAccounts'
+                    });
+                    console.log('Connected:', accounts[0]);
+
+                    await ethereum.request({
+                        method: 'wallet_addEthereumChain',
+                        params: [{
+                            chainId: '0xA045C',
+                            chainName: 'Open Campus Codex Sepolia by dRPC',
+                            rpcUrls: ['https://open-campus-codex-sepolia.drpc.org'],
+                            nativeCurrency: {
+                                name: 'EDU',
+                                symbol: 'EDU',
+                                decimals: 18
+                            },
+                            blockExplorerUrls: ['https://opencampus-codex.blockscout.com']
+                        }]
+                    });
+
+                    updateUI(true);
+                } catch (error) {
+                    console.error('Error connecting:', error);
+                }
+            } else {
+                alert('MetaMask is not installed. Please install it to use this app.');
+            }
+        });
+
+        donateButton.addEventListener('click', async () => {
+            if (ethereum) {
+                try {
+
+                    const donationAmount = document.getElementById('donation-input').value;
+                    const weiAmount = Web3.utils.toWei(donationAmount, 'ether');
+
+                    const txParams = {
+                        to: '0x998ca7E5a4bD0D83141a2024b14A527E35A49A56',
+                        from: ethereum.selectedAddress,
+                        value: weiAmount,
+                        chainId: '0xA045C'
+                    };
+
+                    const txHash = await ethereum.request({
+                        method: 'eth_sendTransaction',
+                        params: [txParams],
+                    });
+                    console.log('Transaction Hash:', txHash);
+                    alert('Transaction sent!');
+                } catch (error) {
+                    console.error('Transaction error:', error);
+                    alert('Failed to send Transaction.');
+                }
+            } else {
+                alert('MetaMask is not installed or wallet not connected.');
+            }
+        });
+
+        function updateUI(isConnected) {
+            if (isConnected) {
+                connectButton.style.display = 'none';
+                donateButton.style.display = 'block';
+            } else {
+                connectButton.style.display = 'block';
+                donateButton.style.display = 'none';
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+</body>
+
+</html>
